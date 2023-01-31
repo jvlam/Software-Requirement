@@ -20,7 +20,7 @@ CV
 - Experiences
 - Project 
 
-# REQUIREMENTS ENGINEERING 
+# 1. REQUIREMENTS ENGINEERING  - 3E
 - ["giải thích khái niệm một số thuật ngữ"]()
 - ENGINEER
     - kĩ sư 
@@ -35,7 +35,7 @@ CV
     - app thu ngân -> tính năng tạo mới đơn hàng và tích điểm -> tạo mới hồ sơ khách hàng thân thiết (cskh) 
     - app hỗ trợ tối đa 10k user cùng lúc xài app ở lúc cao điểm săn sale -> ["non-functional requirements"]()
     - app response trong vòng <= 3s 
-- ["Tại sao lại phải học các kỹ thuật tìm REQs"]()
+- ["Tại Sao Lại Phải học các kỹ thuật tìm REQs"]()
     - tam sao thất bổn, các thành viên của dev team không hiểu ý nhau 
     - không diễn đạt rõ được điều mong muốn
     - REQS bị thay đổi 
@@ -43,35 +43,38 @@ CV
     - không diễn đạt chính xác mong muốn của họ 
     - ảnh hưởng lớn đến việc chỉnh sửa REQS
     - tỉ lệ sai sót khi làm REQS cao, phí tổn fix cao 
+- ["SCOPE OF REQUIREMENT"]()
+    - R/E tập trung vào những điều gì, 3 góc nhìn về R/E tìm ra REQ thì tập trung vào điều gì ?
+        - WHY : tại sao lại cần làm cái app này ?
+        - WHAT: APP sẽ có những màn hình gì, chức năng gì ?
+        - WHO : ai, thiết bị gì (quét sp để nhận diện thanh toán), hệ thống nào khác(momo để thanh toán) sẽ tham gia vào việc vận hành app ?
+- ["Một Số Thuật Ngữ Cần Phân Biệt"]()
+    - 1. AS-IS SYSTEM  vs TO-BE SYSTEM 
+            - ["AS-IS SYSTEM"]() - LEGACY - HIỆN TRẠNG
+                - cách thưc hiện nay cá doanh nghiệp | cá tổ chức |  khách hàng đang làm công việc của họ đang làm bằng tay hay làm 1 cái app đang dùng 
+            - ["TO-BE SYSTEM"]() 
+                - app mới mình đang sẽ làm để thay thế app cũ, hiện trạng cũ 
+            - <kbd>final</kbd> công ty phần mềm convert từ legacy -> tobe 
 
-# SOFTWARE REQUIREMENT 
+    - 2. PRODUCT VS PROJECT
+            - ["PRODUCT"]() - product manager, po, ba, brSE 
+                - ["kết quả"]() hoàn tất một project - production 
 
-<kbd>final</kbd> : học về các kỹ thuật, các bước, công đoạn tìm ra REQS, quản lý các REQS 
-
-
-# SCOPE OF REQUIREMENT
-- R/E tập trung vào những điều gì, 3 góc nhìn về R/E tìm ra REQ thì tập trung vào điều gì ?
-    - WHY : tại sao lại cần làm cái app này ?
-    - WHAT: APP sẽ có những tính năng màn hình gì, chức năng gì ?
-    - WHO : ai thiết bị gì, hệ thống nào khác sẽ tham giá vào việc vận hành app sẽ làm 
-
-# một số thuật ngữ cần phân biệt 
-
-## 1. AS-IS SYSTEM  vs TO-BE SYSTEM 
-- ["AS-IS SYSTEM"]() - LEGACY - HIỆN TRẠNG
-    - cách thưc hiện nay cá doanh nghiệp | cá tổ chức |  khách hàng đang làm công việc của họ đang làm bằng tay hay làm 1 cái app đang dùng 
-- ["TO-BE SYSTEM"]() 
-    - app mới mình đang sẽ làm để thay thế app cũ, hiện trạng cũ 
-- <kbd>final</kbd> công ty phần mềm convert từ legacy -> tobe 
-
-## 2. PRODUCT VS PROJECT
-- ["PRODUCT"]() - product manager, po, ba, brSE 
-    - ["kết quả"]() hoàn tất một project - production 
-
-- ["PROJECT"]() - PM
-    - ["quá trình"]() làm ra 1 sản phầm mềm, 1 product   - development
+            - ["PROJECT"]() - project manager PM
+                - ["quá trình"]() làm ra 1 sản phầm mềm, 1 product   - development
+- ["App Và Nơi Xuất Thân Của Chúng, App Xuất Hiện Như Thế Nào "]()
+    - đến từ cty công nghệ (dùng app tự viết để dùng trong mô hình kinh doanh) - phụ thuộc 100% vào mô hình kinh doanh 
+        + Grab, bee, baemin, momo, lazada 
+    - công ty thuần IT, cty làm phần mềm 
+        + Fsoft, KMS, NashTech ...
+    - các công ty khác, dùng phần mềm phục vụ cho hoạt động nội bộ hay kinh doanh 
 
 ## 3. PROJECT MANAGER vs PRODUCT MANAGER
 - PRODUCT MANAGER - giám đốc sp
+    + tập trung vào product, tìm requirements, cải tiến app 
 - PROJECT MANAGER - quản lý dự án 
+    + scope
+    + budget
+    + time
+
 
