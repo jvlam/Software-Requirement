@@ -148,5 +148,118 @@ quán ăn, khách sạn, ...
     - BẠN ĐÓNG VAI PO/PROD MGR
     - KHỞI NGHIỆP LÀM APP CHO BÁ TÁNH 
 
-# II. PHÂN LOẠI REQUIREMENTS: 
-    
+# VII. PHÂN LOẠI REQUIREMENTS: 
+
+* CHỐT HẠ 
+- Có nhiều loại công ty cùng tuyển dụng Developer: cty công nghệ, công ty lớn, công ty thuần IT (product-based, service-based/outsourcing)
+- Nhưng chỉ ở công ty thuần IT thì dev mới có danh phận !!!
+- App mà được viết hướng về bá tánh đám đông người dùng thì gọi là generic app, product
+- App mà được viết theo đơn đặt hàng riêng của cty nào đó/phòng ban nào đó và dùng trng nội bộ hoạt động của họ, app làm theonhu cầu riêng, gọi CUSTOM, CUSTOMIZEED APP, BESPOKE APP
+- Những job title, những job position: BA, BRSE, PO, PRODUCT MANAGER ĐỀU LÀ NHỮNG GÃ ĐƯA RA REQUIREMENTS
+- REGS có thể đến từ thiên hạ
+- REQS có thể đến từ 1 ai đó cụ thể nói ra: bác sĩ, thu ngân, thủ kho, thủ thư, ông chủ quán ăn 
+
+- Requirements là 1 câu phát biểu - a statement từ ai đó khác làm!!! 
+   A-------------yêu cầu----------------B làm điều gì đó
+            a statement
+- Trong làm phần mềm thì có 2 loại yêu cầu : 
+1. ["PROJECT REQUIREMENTS"]()  
+- Định Nghĩa: là những câu phát biểu đề cập/mô tả đến việc Quản Lí Dự Án và người PM phải có trách nhiệm hoặc đặt ra, hoặc phải xử lí
+* Ví Dụ:
+- Tuần này anh em tăng ca (OT) để kịp tiến độ 
+- Cần phải mua máy đọc barcode cầm tay để hiện thực tính/coding năng TẠO MỚI ĐƠN HÀNG 
+- Cần mua camera độ phân giải cao để code tính năng GỬI XE, LẤY XE của app Bãi xe thông minh 
+
+2. ["PRODUCT REQUIREMENTS"]()
+- Định Nghĩa: là nhưng câu phát biểu từ ai đó để yêu cầu nhóm dev hiện thực/viết code cho tính năng/màn hình mà khách hàng trông đợi để sử dụng
+- Là câu phát biểu về chức năng, tính năng, tên gọi màn hình mà app sẽ cần cung cấp!!!
+- GÓC NHÌN WHAT, WHO, (WHY)
+- môn học SWR , BA, BrSE, PO Product Owner SẼ TẬP TRUNG VÀO CÁI PRODUCT REQS KO TẬP TRUNG VÀO PROJECT REQS
+* CHIA PRODUCT REQS THÀNH 3 LOẠI NHỎ HƠN
+    + ["BUSINESS REQS"]()
+    + ["USER REQS"]()
+        * Định Nghĩa: Là những câu phát biểu từ phía người sẽ dùng app, người đặt hàng làm app, những câu phát biểu dễ hiểu, ko dùng thuật ngữ kĩ thuật.
+        - Là những câu phát biểu ở góc nhìn người dùng, về cái tính năng, chức năng, cái tên, màn hình của cái app đang làm mà tương lai họ sẽ sử dụng trong công việc của họ 
+        * Ví Dụ: 
+        - App QLBV: Bác sĩ nói: 'Tôi muốn app giúp lưu trữ hồ sơ bệnh nhân mà hiện nay đang dùng = giấy + excel'
+        - App Thu ngân của tiệm trà sữa : chủ tiệm trà sữa nói rằng ...
+        # USER REQUIREMENTS NẾU PHÁT BIỂU ĐẦY ĐỦ BAO GỒM TÊN TÍNH NĂNG/TÊN MÀN HÌNH KÈM AI XÀI NÓ CHO MỤC ĐÍCH GÌ, THÌ TA GỌI NÓ LÀ : USER STORY
+        - CÁCH VIẾT USER STORY NGHIÊM NGẶT HƠN USER REQS, MẶC DÙ LÀ 1 USER STORY DÙNG TRONG PHƯƠNG PHÁP AGILE 
+        - AS A <ROLE> I WANT TO <WHAT> SO THAT <PURPOSE>
+
+
+    + ["SYSTEM REQS"]()
+        * Định Nghĩa: CONVERT TỪ USER REQUIREMENTS
+        - là câu phát biểu mổ tả tính năng phần mềm/chức năng phần mềm/tên màn hình
+          nhưng chi tiết hơn câu User Reqs, nó mang yếu tố kĩ thuật, yếu tố lập trình vào > người đọc câu này là dev team 
+        
+        - App QLBV: 
+            - Bác sĩ nói: 'Tôi muốn app giúp lưu trữ hồ sơ bệnh nhân mà hiện nay đang dùng = giấy + excel'
+            - App có tính năng lưu trữ hồ sơ bệnh nhân. Hồ sơ bệnh nhân có những infor cơ bản sau, tên bn, năm sinh, địa chỉ, sdt
+            mã số bệnh nhân theo định dạng: <yyyy><mm><xxxx>
+            - ví dụ: 20230212345 > SYSTEM REQUIREMENT 
+
+
+        - lại chia nhỏ thành 2 loại nhỏ hơn
+            - FUNCTIONAL REQUIREMENTS
+                * Định nghĩa: là những câu phát biểu tính năng phần mềm/tên màn hình/góc nhìn chi tiết/ góc nhìn của dev để cung cấp khả năng giúp cho công việc
+                của user/khách hàng, giúp khách hàng/user làm điều gì đó
+                WHAT, VERB PHẢN ÁNH TÍNH NĂNG CỦA APP GIÚP USER LÀM ĐIỀU GÌ
+                * Ví Dụ: App có tính năng lưu trữ hồ sơ bệnh nhân. Hồ sơ bệnh nhân có những info cơ bản sau, tên bn, năm sinh, địa chỉ, số điện thoại, dị ứng ...
+                mã số bệnh nhân theo định dạng : <yyyy><mm><xxxxx>
+                - ví dụ: 20230212345 > SYSTEM REQUIREMENT 
+            - NON-FUNCTIONAL REQUIREMENTS 
+                * Định nghĩa: Những câu phát biểu nói về cảm giác, cảm xúc trải nghiệm app của user hay những ràng buộc mà app cần phải thỏa 
+                - Thường nó sẽ dùng tính từ để mô tả tính chất hoạt động của toàn bộ app, ko focus đề cập vào 1 tính năng cụ thể nào đó 
+                - Có thể tóm gọn yêu cầu phi chức năng đc phát biểu qua những cụm từ 'nhanh/chậm/đã/to/nhỏ/đẹp/xấu/tuân thủ/bảo mật'
+                * Ví Dụ: 
+                    - App phải dễ dùng
+                    - App kế toán nhân sự
+
+# VIII. STAKE-HOLDER 
+- Để làm một dự án phần mềm sẽ có rất nhiều người có liên quan cùng tham gia. Bao gồm phía cty phần mềm và bên đặt hàng làm app 
+    + 1. DEVELOPMENT TEAM
+    + 2. BA IT, BRSE, PRODCUT OWER, PROJECT MANGAFER 
+    + 3. CUSTOMER 
+    + 4. USER
+    + 5. NHỮNG NGƯỜI CÒN LẠI, SẤP , CÁC BÊN    
+- BA - BUSINESS ANALYST - LÀ CÂU CHUYỆN CHÍNH CỦA CHÚNG TA
+* ĐỊNH NGHĨA VỀ BA
+- Là mọt gã trong team, giao tiếp với các thành viên trong dev team, và giao tiếp với bên ngoài dev team, tức là giao tiếp với khách hàng và user
+- Gã giao tiếp với developer về tính năng phần mềm cần làm
+- Gã giao tiếp với QC/Tester về tính năng phần mềm cần test
+- Gã giao tiếp với PM về tiến bộ, dộ phức tạp của tính năng phần mềm
+- Gã giao tiếp với khách hàng/user để tìm ra các tính năng phần mềm và đem về cho dev team làm 
+
+
+# 1. REQ DEVELOPMENT - TÌM RA CÁC REQUIREMENTS TÍNH NĂNG CỦA PHẦN MỀM 
+- đây là công đoạn, hay gồm những việc quan trọng: tìm ra tính năng 
+- Trong công đoạn này gồm 4 giai đoạn con 
+1. a ELICITATION (ÁP DỤNG CÁC SKILL LÀM VIỆC VỚI KHÁCH HÀNG, USER ĐỂ LẤY ĐƯỢC MONG ƯỚC CỦA HỌ VỀ PM)
+
+
+2.
+
+
+
+===============================================================================================================================================================
+1A. CÓ KHOẢNG 10+  CÁC KĨ THUẬT ĐỂ LÀM VIỆC VỚI KHÁCH HÀNG 
+(1): interviewing 
+(2): workshop - tổ chức phiên họp nhiều user/kh 
+(3): focus group - tổ chức phiên họp nhiều user/kh cùng tham gia 
+(4): questionaire/survey: làm bản điều tra câu hỏi, nhu cầu số đông 
+(5): observation/ethnography: qun sát khách hàng đang làm việc để hiểu luồng thông tin, luông xử lí công việ của họ > ra được các luồng màn mànhinhf sau này của app 
+(6): document collection: gom, xin tất cả các tài liệu văn bản, giấy tờ, của kh 
+(7): user interface analysis: xem app đối thủ có trên thị trường, xem các app có sẵn của cùng phân khúc, app cũ nếu k/h đang dùng học từ app của thiên hạ 
+(8): system interface anlysis: ko nhìn app mình là 1 đơn thể biệt lập mà app mình giao tiếp với app khác !! app có kết nối qua ví, giao hàng, google api 
+(9): prototyping: phác thảo nhanh các UI, các màn hình để cho khách hàng/user cảm nhận sớm, và cho feedback
+(10): brain-storming: họp chung, đề xuất ý tưởng 1 cách độc lập, 
+
+================================================================================================================================================================
+TUYỆT CHIÊU / TUYỆT KĨ / BÍ KÍP RÌM REQ TỪ KHÁCH HÀNG. TỪ USER, TỪ BÁ TÁNH
+[1]. APP VIẾT CHO NHỮNG AI DÙNG 
+    - App cos 2 module
+        + user thường
+        + user quản trị/ user quản lí 
+[2]. 
+[3]. 
