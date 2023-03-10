@@ -3,7 +3,7 @@
 - về mặt logic, chính là màn hình login 
 - 2 loại user 
     + user thường : ít quyền và chủ yếu là view, read
-        + guest, visitor
+        + guest, visitor - không cần login mà vẫn dùng được app 
         + có account, member 
     + user quản trị : crud, tạo data cho user thường 
 # 2. App có tính năng gì, ai làm được gì với app
@@ -30,11 +30,110 @@
 - MỌI ACTOR (USER) PHẢI NẰM BÊN NGOÀI HÌNH CHỮ NHẬT
 - MỌI TÍNH NĂNG, CHỨC NĂNG CỦA APP, PHẢI NẰM TRONG HÌNH CHỮ NHẬT 
 - HÌNH CHỮ NHẬT, khoanh vùng trong và ngoài, trong nghĩa là những tính năng sẽ cung cấp cho user trải nghiệm
+- Bên ngoài System Boundary sẽ là user/actor hoặc các app khác có tương tác với app mình, 
+    + hoặc các thiết bị khác có tương tác với app mình
+    + tương tác hiểu là: cung cấp info cho app mình, nhận info từ app mình, kích hoạt app mình, run tính năng nào đó
+### 2. ACTOR (HÌNH NGƯỜI QUE) DỊCH LÀ TÁC NHÂN 
+- LÀ CON NGƯỜI, LÀ USER xài app, xài các tính năng của app 
+- Có 2 loại user (đã nói ở trên rồi) đó: user thường và user quyền lực/quản trị 
+    + user thường có user cực kì đặc biệt: ko login vẫn xài app, xài được một số tính năng gọi là : GUEST
+    + những user còn lại (thường, quản trị) đều cần login để xài đc nững tính năng đã đucowj phân quyền 
+        + HỌ GỌI CHUNG LÀ MEMBER, REGISTERED USER, AUTHENTICATED 
+        
+    * CÁCH ĐẶT TÊN CHO ACTOR, USER: NOUN, DANH TỪ, không dùng tên riêng Lan Hồng Huệ Mơ Mận Đào làm actor
+        - nếu các bạn này đều cùng 1 công việc là tạo mới đơn hàng và thu tiền, các em gọi chung là: Thu Ngân - Cashier 
+    * ACTOR CÒN LÀ APP KHÁC CÓ TƯƠNG TÁC VỚI APP TA, ACTOR CÒN LÀ THIẾT BỊ KHÁC CÓ TƯƠNG TÁC VỚI APP TA
+        - vd: nếu ta có login = gmail, thì gmail sẽ cung cấp info cho app ta, rõ ràng nó là 1 "user" nó có xài tính năng nào đó
+    * APP giám sát an ninh, app bãi giữ xe thông minh, cần nhận info từ Camera, 
+        - Camera đc xem là actor, vì có gửi info cho app          
+    - NHỮNG THIẾT BỊ ĐI KÈM VỚI APP TA VIẾT, VÀ CUNG CẤP NHIỀU INFO CHO APP HOẠT ĐỘNG, NHỮNG THIẾT BỊ NÀY CŨNG LÀ HÌNH NGƯỜI que - ACTOR
+        - ví dụ: Camera giám sát, Sensor (cảm biến) trong app Iot, nhưng gửi info quá đơn giản, 
+        - QR, barcode, thì không cần vẽ ra cũng đc cho sơ đồ bớt rối!!
+    * CÒN 1 ACTOR CỰC KÌ ĐẶC BIỆT KHÁC, ĐÓ LÀ: SYSTEM HANDLER 
+    Khi app chúng ta viết, có tình huống là tự động làm 1 việc gì đó khi đến thời điểm nào đó                    
+        - Ví dụ: đơn hàng đặt hàng sau 24 giờ ko thanh toán, tự bị hủy 
+        - app nhắc thuốc: cứ đến 3 giờ chiều thì app nhắc người già uống thuốc                                                                                          
+        - app quản lí lịch làm việc: cứ trước event quan trọng 30p, 1 ngày thì nhắc                                                       
+        - app cào data: 23:59 phút tối thứ 6, lên website tgdd, cellphones, hoangha fpt shop lấy các dữ liệu điện thoại                              
+            - đoạn code này thay cho admin làm việc gì đó
+            - đoạn code này kích haoatj app chạy, nó được gọi là, nhân cách hóa thành 1 USER gọi là: SYSTEM HANLDER 
+            - từ khóa CRON JOB  
+### 3. USECASE (hình ô-val, elipse) USECASE - TÌNH HUỐNG SỬ DỤNG 
+- là tên gọi của 1 chức năng, 1 tính năng, 1 user req, 1 functional req, 1 user story, 1 hoặc vài màn hình GIÚP NGƯỜI DÙNG LÀM 1 CÔNG VIỆC GÌ ĐÓ
+- 1 UC LÀ 1 CHỨC NĂNG MÀ APP PHẢI GIÚP GÌ ĐÓ CHO NGƯỜI DÙNG
+- 1 UC LÀ 1 XỬ LÍ, ĐÒI HỎI APP PHẢI CÓ HÀNH ĐỘNG TÍNH TOÁN, XỬ LÍ, LƯU TRỮ PHẢI TRẢ VỀ 1 KẾT QUẢ CÓ Ý NGHĨA CHO NGƯỜI XÀI
+* CÁCH NHẬN DIỆN NÓ:
+    + dùng động từ mô tả cái what mà user sẽ đạt được khi xài tính năng!!!
+    + động từ bao hàm 2 nghĩa: lưu trữ info, xử lí info 
+* QUY TẮC ĐẶT TÊN UC
+    + verb - object động từ + bổ ngữ, ví dụ: Create an order, Ban a user, Update a product, Search items, Choose map, Sell item 
+* COI CHỪNG NHẦM LẪN ["USE CASE"]() VÀ ["STEP"] ĐỂ HOÀN TẤT USE CASE 
+    - ["USE CASE"](): khi app sẽ phải trả về 1 thứ gì đó cho user
+        + Login trả về: đc xác thực, mới làm được gì đó tiếp, 
+        + Create an order: trả về đơn mua hàng được tạo ra 
+        + Search products: trả về danh sách sản phẩm thỏa keyword
+        + Sell items: bán dc, thu dc tiền / coin từ việc bán
+        + Buy items: mua đc món đồ trang bị cho tướng của mình
 
-### 2. ACTOR
-### 3. USE CASE
-### 4. LINK - nét nối 
-        - Association 
-        - Generalization 
-        - Include 
-        - Extend 
+    - ["STEP"](): cũng có động từ chỉ hành động, nhưng app chẳng xử lí gì cả, vì nó chỉ là 1 bước góp vào việc xử lí Use Case
+        + input username -> app chả làm gì
+        + input password -> app chả làm gì
+        2 thằng này là 2 step để hoàn tát góp phần cho UC login chạy thành công !!!
+        2 thằng này ko là UC
+
+        select destination, choose country -> app chả xử lí gì 
+        vì nó là 2 step để hoàn tất tính năng UC BOOK VÉ, BOOK PHÒNG!!! 
+### 4. LINK - nét nối CÓ NHỮNG CÁCH THỨC KẾT NỐI CÁC THÀNH PHẦN TRONG SƠ ĐỒ UC VÀ DÙNG LẠI 4 LOẠI NÉT NỐI DƯỚI ĐÂY
+    - Association 
+        + 
+    - Generalization 
+    - Include 
+    - Extend 
+    * 1. ACTOR NỐI VỚI ACTOR 
+        - chỉ được sử dụng nét nối tam giác rỗng, nét nối mang ý nghĩa kế thừa, generalization 
+        - con hướng tam giác rỗng về cha
+        - dùng khi các actor chia sẻ chung/ dùng chúng các tính năng nào đó!!!
+            + Lecturer---------------|> Member
+            + Student----------------|> Member
+            + Sales Manager----------|> Member
+    * 2. ACTOR NỐI VỚI USE CASE 
+        - chỉ đc sử dụng 1 nét nối duy nhất là ASSOCIATION, MANG Ý NGHĨA USER X XÀI TÍNH NĂNG Y 
+    * 3. USE CASE NỐI VỚI USE CASE 
+        - có 3 cách nối giữa 2 UC với nhau, tùy bài toán, tùy app
+            + cách 1: Generalization, tam giác rỗng từ UC Con hướng về UC cha
+                + mang ý nghĩa: giữa các UC có những đặc điểm chung, xử lí chung nào đó đọc đc câu A is a B 1 chiều dùng loại nét này để gom chức năng, gom menu
+                + Ví Dụ: (Manage item) là UC cha
+                        - Create an item là con
+                        - Update an item là con
+                        - Delete an item là con
+                        - Search items là con
+                + CÔNG THỨC CHUNG: MANAGE X LÀ CHA, CRUD X LÀ CON 
+            + cách 2: Include Phụ thuộc siêu chặt chẽ, sống còn
+            + cách 3: Extend Phụ thuộc lỏng lẻo, option, plugin 
+
+----------------------------------------------------------------------------------------------------------------------------------------
+# MỞ RỘNG
+- UC LÀ TÍNH NĂNG, LÀ MÀN HÌNH LÀM GÌ ĐÓ CHO USER, ACTOR
+    + UC LÀ FUNCTIONAL REQS, USER REQS, USER STORY 
+    + GIỮA CÁC TÍNH NĂNG CÓ THỂ CÓ SỰ LIÊN KẾT NÀO ĐÓ
+1. ["LIÊN KẾT THEO KIỂU GOM NHÓM, CÓ ĐIỂM TƯƠNG ĐỒNG, MỐI QUAN HỆ IS-A"]()
+    + (Con) ---------------|> (Cha)
+    + .... .
+
+2. ["LIÊN KẾT PHỤ THUỘC CHẶT CHẼ"]()
+- CÓ NHỮNG USE CASE (2 TRỞ LÊN) MÀ CHÚNG PHỤ THUỘC RẤT CHẶT CHẼ, TỨC LÀ THẰNG NÀY MUỐN XONG, THÌ CẦN THẰNG KIA GIÚP, THẰNG KIA CŨNG PHẢI XONG
+THÌ THẰNG NÀY XONG MỚI ĐƯỢC
+- tính năng đăng kí member (Sign-up) thì luôn có 1 tính năng ngầm: gửi Email(kích hoạt, hoặc thông tin account)
+- nếu đăng kí thành công, đồng nghĩa với việc email đã đc gửi đi !!!
+- (BASE UC) -------------<<include>>----------------> (UC phụ thuộc, included)
+    Base ko thể thành công nếu thiếu bên phụ thuộc
+     y chang khái niệm app mình cần thư viện, cần dependency, thiếu thư viện, ko chạy app đc <<INCLUDE>> ĐỌC TỪ GỐC MŨI TÊN
+- DÙNG <<INCLUDE>> KHI CÓ NHIỀU UC XÀI CHUNG 1 USE CASE NÀO ĐÓ, HOẶC CÓ NHỮNG XỬ LÍ LẶP ĐI LẶP LẠI TRONG CÁC UC, TÁCH XỬ LÍ CHUNG NÀY RA THÀNH UC THƯ VIỆN 
+    + reset, sign-up đều có 
+
+3. ["LIÊN KẾT PHỤ THUỘC LỎNG LẺO - EXTEND, PLUGIN, OPTION"]()
+- (BASE UC - UC CHÍNH) <|---------------<<extend>>---------(USE CASE EXTENSION)
+-       (Search) <|---------------<<extend>>-----------(View detail)
+- BASE UC có thể hoàn tất mà chẳng cần gì đến (mở rộng, plugin, option) thích thì gọi, mà không thích thì thôi 
+* DÙNG EXTEND KHI NÀO: KHI MUỐN LIÊN KẾT CÁC TÍNH NĂNG CHO TIỆN SỬ DỤNG, TỪ MÀN HÌNH NÀY CHUYỂN SANG MÀN HÌNH KHÁC MÀ KHÔNG CẦN ĐI QUA MENU
+    - trong danh sách kết quả search thường có link trên từng dòng kết quả để view detail thùng rác kế bên từng dòng để thích thì xóa
