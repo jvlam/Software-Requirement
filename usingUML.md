@@ -114,7 +114,7 @@
 ----------------------------------------------------------------------------------------------------------------------------------------
 # MỞ RỘNG
 - UC LÀ TÍNH NĂNG, LÀ MÀN HÌNH LÀM GÌ ĐÓ CHO USER, ACTOR
-    + UC LÀ FUNCTIONAL REQS, USER REQS, USER STORY 
+    + UC LÀ FUNCTIONAL REQS, USER REQS, USER STORY  
     + GIỮA CÁC TÍNH NĂNG CÓ THỂ CÓ SỰ LIÊN KẾT NÀO ĐÓ
 1. ["LIÊN KẾT THEO KIỂU GOM NHÓM, CÓ ĐIỂM TƯƠNG ĐỒNG, MỐI QUAN HỆ IS-A"]()
     + (Con) ---------------|> (Cha)
@@ -135,5 +135,84 @@ THÌ THẰNG NÀY XONG MỚI ĐƯỢC
 - (BASE UC - UC CHÍNH) <|---------------<<extend>>---------(USE CASE EXTENSION)
 -       (Search) <|---------------<<extend>>-----------(View detail)
 - BASE UC có thể hoàn tất mà chẳng cần gì đến (mở rộng, plugin, option) thích thì gọi, mà không thích thì thôi 
-* DÙNG EXTEND KHI NÀO: KHI MUỐN LIÊN KẾT CÁC TÍNH NĂNG CHO TIỆN SỬ DỤNG, TỪ MÀN HÌNH NÀY CHUYỂN SANG MÀN HÌNH KHÁC MÀ KHÔNG CẦN ĐI QUA MENU
+* DÙNG EXTEND KHI NÀO: KHI MUỐN LIÊN KẾT CÁC TÍNH NĂNG CHO TIỆN SỬ DỤNG, TỪ MÀN HÌNH NÀY CHUYỂN SANG MÀN HÌNH KHÁC MÀ KHÔNG CẦN ĐI QUA MENU 
     - trong danh sách kết quả search thường có link trên từng dòng kết quả để view detail thùng rác kế bên từng dòng để thích thì xóa
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+# TÓM LƯỢC / TỔNG LƯỢC VỀ UCD - USE CASE DIAGRAM
+* UCD là sơ đồ liệt kê các tính năng, chức năng, tên màn hình, functional reqs, user story, user requirements, use case - các tình huống sử dụng app
+* UCD là sơ đồ liệt kê các tính năng của app và những user (actor) xài các tính năng đó           
+                                                                         
+# CÓ 4 THÀNH PHẦN TẠO NÊN SƠ ĐỒ NÀY 
+## 1. SYSTEM BOUNDARY - HCN, ĐI KÈM TÊN APP PHÍA TRÊN 
+## 2. USE CASE - hình elipse/oval chính là 1 tính năng, 1 .., dùng verb + object để làm một điều gì đó cho user 
+               - mà nếu không có nó thì user vẫn phải làm = tay 
+## 3. ACTOR - con người/ user xài app, một thiết bị, app khác cung cấp với app mình đang viết 
+            - 2 loại user: có login và ko login 
+            - 2 loại user: user thường và user quyền lực
+                       guest và có login   phải login 
+## 4. LINK - NÉT NỐI GIỮA 3 THÀNH PHẦN TRÊN
+### * actor nối với actor: generalization 
+### * actor nối với use case: association
+### * use case nối với use case:
+        - UC Cha <|---------- UC Con: generalization
+        - (Base UC) ---------<<Include>>----------> (Included UC, UC phụ thuộc, thư viện, đọc từ base, gốc mũi tên, tao cần mày ở bên kia)
+        - (Base UC) <-------------<<extend>>-------- (extend, extension, plugin, option) đọc từ
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# UC là hình elipse, oval, diễn tả một chức năng, 1 tính năng, 1 tên màn hình, 1 functional req, 1 user req, 1 user story 
+  giúp user xử lí 1 công việc gì đó, giúp user làm đc 1 điều gì cho công việc của user
+
+- Ví dụ:
+    (Create an order) giúp cho thu-ngân/cashier ghi nhận được giao dịch mua hàng 
+    (Ban a user) giúp admin/mod cấm 1 user nào đó hay phá đám / spam
+    (login) giúp 1 user nào đó có account sãn sàng đăng nhập để làm đc những việc mà user thường không làm đc
+    (update) giúp sales 
+
+- UC đủ để dev team, user, người đặt hàng làm app hiểu cơ bản về tính năng mà họ sẽ trải nghiệm, nhưng nó lại khá chung chung, 
+thiếu chi tiết cho phần hiện thực tính năng ở giai đoạn code/design 
+
+Ví dụ : Guest thì register/sign-up
+        Member thì login 
+2 tính năng trên kho khó hiểu, dân thường cx hiểu đc, dân dev hiểu đc luô nhưng dân dev lại bối rối 
+Bối rối không phải vì kông code đc, mà là vì nhiều phương án để code!!!
+Ví dụ: sign-up có các cách thức sau :
+    - gõ vào số di động, gửi OTP -> nhập đúng OTP tương đương tạo mới + đăng nhập 
+    - sign-up = cách dùng Gmail, FB đang active         
+    - sign-up = cách dùng email address nhưng pass riêng!!
+    - sign-up = cách dùng username, pass riêng                                                                                                            
+
+
+- PHIẾU NÀY ĐƯỢC GỌI LÀ: USE CASE DESCRIPTION - ĐẶC TẢ USE CASE 
+
+UCD PETSTORE
+- (Login) -------------------- 1 UC Desc
+- (View profile)-------------- 1 UC Desc
+- (Update profile)------------ 1 UC Desc
+- (Create pet)
+- (Create service)
+- (Create item)
+
+# CÂU SỐ 3: HÃY VIẾT 1 UC DESC PHIẾU MÔ TẢ UC VIẾT THẾ NÀO ??
+- VIẾT TỰ DO DÙNG NOTEPAD
+- VIẾT THEO 1 FORMAT CHO TRƯỚC ĐỂ ĐẢM BẢO CHUYÊN NGHIỆP, KO THIẾU INFO!!! 
+- MỘT UC DESC CÓ NHỮNG THÀNH PHẦN CƠ BẢN SAU, MÔ TẢ CHI TIẾT 1 UC GỒM NHỮNG MỤC SUA
+1. MÃ số UC:______________
+2. Tên UC: _____________
+3. Ai tạo ra UC này: ____________ tên gã BA
+4. Ngày giờ tạo ra UC này: ___________ sau khi đi lấy y/c về, bắt đầu vẽ
+5. Mô tả vắn tắt về UC: ____________
+6. KHi nào UC này đc chạy, tính năng được chạy (trigger): ___________
+7. Để chạy UC này, cần có những điều kiện tiên quyết nào, data nào (pre-conditions):__________
+8. Sau khi UC chạy xong, tính năng chạy xong, trạng thái của app ra sao, db thế nào (post-conditions): ___________
+9. Kịch bản chạy tính năng này, các xử lí của tính năng này, các step của UC này: 
+    Main flow:
+10. Kịch bản thay thế dự phòng: __________
+    Alternative flow:
+11. Kịch bản thảm họa, khi chạy UC bị crash, ngoại lệ gì, nói luôn ở đây 
+    Exception flow
+12. Business rules: quy tắc xử lí của user/actor trong công việc của họ những gài về data họ muốn app làm!!!
+
+
+
